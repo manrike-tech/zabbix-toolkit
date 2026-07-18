@@ -28,7 +28,7 @@ zabbix-toolkit/
 Clona el repositorio:
 
 ```bash
-git clone https://github.com/tu-usuario/zabbix-toolkit.git
+git clone https://github.com/manrikdev/zabbix-toolkit.git
 ```
 - Importa una plantilla desde templates/ en tu interfaz Zabbix
 
