@@ -2,15 +2,9 @@
 <zabbix_export>
     <version>6.0</version>
     <date>2026-07-18T00:00:00Z</date>
-    <template_groups>
-        <template_group>
-            <uuid>36bff6c29af64692839d077febfc7079</uuid>
-            <name>Templates/Network devices</name>
-        </template_group>
-    </template_groups>
     <templates>
         <template>
-            <uuid>3a458a77d38744cb9babfec69d431e33</uuid>
+            <uuid>89d4bfe85972405cbceab61d8ee5b45c</uuid>
             <template>Aruba 1930 Switch SNMP</template>
             <name>Aruba 1930 Switch SNMP</name>
             <description>Template Net HP Enterprise Switch
@@ -26,7 +20,7 @@ SNMPv2-MIB
 ENTITY-MIB
 STATISTICS-MIB
 
-Template tooling version used: 0.41</description>
+</description>
             <groups>
                 <group>
                     <name>Templates/Network devices</name>
@@ -34,7 +28,7 @@ Template tooling version used: 0.41</description>
             </groups>
             <items>
                 <item>
-                    <uuid>171a7ef5105e47068da921f4a20a3824</uuid>
+                    <uuid>9cda80460e6d426f918d810f7ca7a040</uuid>
                     <name>ICMP ping</name>
                     <type>SIMPLE</type>
                     <key>icmpping</key>
@@ -54,7 +48,7 @@ Template tooling version used: 0.41</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>4c733e467f03440a858587f942beeefa</uuid>
+                            <uuid>ef03eec1d9534abe9d0ee23e85f9521e</uuid>
                             <expression>max(/Aruba 1930 Switch SNMP/icmpping,#3)=0</expression>
                             <name>Unavailable by ICMP ping</name>
                             <priority>HIGH</priority>
@@ -69,7 +63,7 @@ Template tooling version used: 0.41</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>6022ff699267497b900bbadea21c6b7a</uuid>
+                    <uuid>8307e215c8b342a6aaaaf69730bf1a65</uuid>
                     <name>ICMP loss</name>
                     <type>SIMPLE</type>
                     <key>icmppingloss</key>
@@ -88,7 +82,7 @@ Template tooling version used: 0.41</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>3117fce5ba3c4549876d196c4ce0056f</uuid>
+                            <uuid>27a3953fef1f4af79ac16fa32a2ad43b</uuid>
                             <expression>min(/Aruba 1930 Switch SNMP/icmppingloss,5m)&gt;{$ICMP_LOSS_WARN} and min(/Aruba 1930 Switch SNMP/icmppingloss,5m)&lt;100</expression>
                             <name>High ICMP ping loss</name>
                             <opdata>Loss: {ITEM.LASTVALUE1}</opdata>
@@ -113,7 +107,7 @@ Template tooling version used: 0.41</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>8bb8243a88b8429586921709288c6559</uuid>
+                    <uuid>522f8670a08d4ccd979ce77208323088</uuid>
                     <name>ICMP response time</name>
                     <type>SIMPLE</type>
                     <key>icmppingsec</key>
@@ -132,7 +126,7 @@ Template tooling version used: 0.41</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>b4c0ca4fb93145caab3281d88d504a40</uuid>
+                            <uuid>c94a6edf8e7e4f42ac12aabd00386316</uuid>
                             <expression>avg(/Aruba 1930 Switch SNMP/icmppingsec,5m)&gt;{$ICMP_RESPONSE_TIME_WARN}</expression>
                             <name>High ICMP ping response time</name>
                             <opdata>Value: {ITEM.LASTVALUE1}</opdata>
@@ -161,7 +155,7 @@ Template tooling version used: 0.41</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>22013d5a42ab40aab564457a5de05fdf</uuid>
+                    <uuid>df607899eec24fc3a8914215db054ce8</uuid>
                     <name>SNMP traps (fallback)</name>
                     <type>SNMP_TRAP</type>
                     <key>snmptrap.fallback</key>
@@ -178,7 +172,7 @@ Template tooling version used: 0.41</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>8aaeaaed3c534802ae120cf096e3cfcd</uuid>
+                    <uuid>bafa39b34ae54cb388f1726ee955d115</uuid>
                     <name>System contact details</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.4.0</snmp_oid>
@@ -206,7 +200,7 @@ The textual identification of the contact person for this managed node, together
                     </tags>
                 </item>
                 <item>
-                    <uuid>3ec61a677bb54a42a6a6af740981adf2</uuid>
+                    <uuid>baba9774c10e4e37b1814e43feb6a914</uuid>
                     <name>CPU utilization</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>.1.3.6.1.4.1.11.2.1.8.0</snmp_oid>
@@ -225,7 +219,7 @@ Reference: http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c0259
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>4de5a9cc6ee74adebe6b805273366b9d</uuid>
+                            <uuid>fabb57f23140409da63d47a759274a51</uuid>
                             <expression>min(/Aruba 1930 Switch SNMP/system.cpu.util[hpSwitchCpuStat.0],5m)&gt;{$CPU.UTIL.CRIT}</expression>
                             <name>High CPU utilization (over {$CPU.UTIL.CRIT}% for 5m)</name>
                             <opdata>Current utilization: {ITEM.LASTVALUE1}</opdata>
@@ -241,7 +235,7 @@ Reference: http://h20564.www2.hpe.com/hpsc/doc/public/display?docId=emr_na-c0259
                     </triggers>
                 </item>
                 <item>
-                    <uuid>921e76caab0b426aac521842d4600fb2</uuid>
+                    <uuid>08598f79b6c640e8a02ecd856c29f029</uuid>
                     <name>System description</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.1.0</snmp_oid>
@@ -270,7 +264,7 @@ networking software.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>c37a70aac7034950af3e9e52e4b30934</uuid>
+                    <uuid>4de6af7b6a0c42928e83cff34cd9525b</uuid>
                     <name>Firmware version</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>.1.3.6.1.4.1.11.2.53.4.1.5.1</snmp_oid>
@@ -301,7 +295,7 @@ A    the function set available in your router
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>78f8c05914214375a71dd7b84fb254ec</uuid>
+                            <uuid>1367d2caefea47d289cbd22b83f4a28f</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/system.hw.firmware,#1)&lt;&gt;last(/Aruba 1930 Switch SNMP/system.hw.firmware,#2) and length(last(/Aruba 1930 Switch SNMP/system.hw.firmware))&gt;0</expression>
                             <name>Firmware has changed</name>
                             <opdata>Current value: {ITEM.LASTVALUE1}</opdata>
@@ -318,7 +312,7 @@ A    the function set available in your router
                     </triggers>
                 </item>
                 <item>
-                    <uuid>378d2be777af413a8d4310dabadf9e28</uuid>
+                    <uuid>91463c04a055423d8f47ca430efee990</uuid>
                     <name>Hardware serial number</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.4.1.11.2.36.1.1.2.9.0</snmp_oid>
@@ -345,7 +339,7 @@ A    the function set available in your router
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>f754763b58be4aea93987b4c466045fd</uuid>
+                            <uuid>ecf5ba0fc46241a2a883a2175b1f51ec</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/system.hw.serialnumber,#1)&lt;&gt;last(/Aruba 1930 Switch SNMP/system.hw.serialnumber,#2) and length(last(/Aruba 1930 Switch SNMP/system.hw.serialnumber))&gt;0</expression>
                             <name>Device has been replaced (new serial number received)</name>
                             <priority>INFO</priority>
@@ -361,7 +355,7 @@ A    the function set available in your router
                     </triggers>
                 </item>
                 <item>
-                    <uuid>502eeb1b48444a50b3a1ef3fead83b9c</uuid>
+                    <uuid>9f6ef6edb52440bfa079ba98a5e35c42</uuid>
                     <name>System location</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.6.0</snmp_oid>
@@ -389,7 +383,7 @@ The physical location of this node (e.g., `telephone closet, 3rd floor').  If th
                     </tags>
                 </item>
                 <item>
-                    <uuid>9edb539eb7c2497d9c309b5b590a6087</uuid>
+                    <uuid>e2d80f1b995e4b48838465b3162a6569</uuid>
                     <name>System name</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.5.0</snmp_oid>
@@ -417,7 +411,7 @@ An administratively-assigned name for this managed node.By convention, this is t
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>c094b85a54774cca9bffe089d4cb968d</uuid>
+                            <uuid>0de5b8cd8f83429fa881605a49f45adc</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/system.name,#1)&lt;&gt;last(/Aruba 1930 Switch SNMP/system.name,#2) and length(last(/Aruba 1930 Switch SNMP/system.name))&gt;0</expression>
                             <name>System name has changed (new name: {ITEM.VALUE})</name>
                             <priority>INFO</priority>
@@ -437,7 +431,7 @@ An administratively-assigned name for this managed node.By convention, this is t
                     </triggers>
                 </item>
                 <item>
-                    <uuid>5a465ca2377948d3a10a230c78f69825</uuid>
+                    <uuid>9277607c5aef41209671487d94b302d7</uuid>
                     <name>System object ID</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.2.0</snmp_oid>
@@ -464,7 +458,7 @@ The vendor's authoritative identification of the network management subsystem co
                     </tags>
                 </item>
                 <item>
-                    <uuid>5b10c9a613ce475b89c7a46437061e0c</uuid>
+                    <uuid>a073f18545b8422c88141de1e060e15d</uuid>
                     <name>Uptime</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.1.3.0</snmp_oid>
@@ -491,7 +485,7 @@ The time (in hundredths of a second) since the network management portion of the
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>9c41a9ef6d734aa3a355220d05bf2831</uuid>
+                            <uuid>313fffdc5299428ab238765c7f8b0a17</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/system.uptime[sysUpTime.0])&lt;10m</expression>
                             <name>{HOST.NAME} has been restarted (uptime &lt; 10m)</name>
                             <priority>WARNING</priority>
@@ -513,7 +507,7 @@ The time (in hundredths of a second) since the network management portion of the
                     </triggers>
                 </item>
                 <item>
-                    <uuid>309714d978b1483196ed7bb47ebd190e</uuid>
+                    <uuid>2e109ee05eff433c91ce5ad942816391</uuid>
                     <name>SNMP agent availability</name>
                     <type>INTERNAL</type>
                     <key>zabbix[host,snmp,available]</key>
@@ -538,7 +532,7 @@ Possible value:
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>5a3f77183b1441bdb8fa1112e53303ce</uuid>
+                            <uuid>46d60f59a994465c87f434ae125d0ac9</uuid>
                             <expression>max(/Aruba 1930 Switch SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0</expression>
                             <name>No SNMP data collection</name>
                             <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -560,7 +554,7 @@ Possible value:
                     </triggers>
                 </item>
                 <item>
-                    <uuid>2590ea6ab6583cd1cbe8df9e44d63ac2</uuid>
+                    <uuid>3df0cad77d2d4bd39abf0ddd0ea78233</uuid>
                     <name>PoE PSE 1: Nominal power</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.105.1.3.1.1.2.1</snmp_oid>
@@ -578,7 +572,7 @@ Nominal PSE power budget.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>a77a28ea5328f8042f81110ac25e802c</uuid>
+                    <uuid>d4e21b32aa0646c4acba8e7084a839cf</uuid>
                     <name>PoE PSE 1: Operational status</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.105.1.3.1.1.3.1</snmp_oid>
@@ -599,7 +593,7 @@ Main PSE operational status.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>08908fea850ae7159a01682a0a158e11</uuid>
+                            <uuid>da9082bacf6746dbb67ad68da86391c0</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/poe.main.status[pethMainPseOperStatus.1])&lt;&gt;1</expression>
                             <name>PoE PSE 1 is not operational</name>
                             <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -614,7 +608,7 @@ Main PSE operational status.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>081bd83ee983e2d5264af203c9681d35</uuid>
+                    <uuid>97bd78360aad4d38a718805131a657a6</uuid>
                     <name>PoE PSE 1: Consumed power</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.105.1.3.1.1.4.1</snmp_oid>
@@ -632,7 +626,7 @@ Measured PSE power usage.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>4296c7071bee956372782c147a9fdd2b</uuid>
+                            <uuid>7e234244f7ff460ca561b6d96acfd2ab</uuid>
                             <expression>last(/Aruba 1930 Switch SNMP/poe.main.util[pethMainPseConsumptionPower.1])&gt;{$POE.POWER.UTIL.WARN}</expression>
                             <name>High PoE power usage on PSE 1</name>
                             <opdata>Current utilization: {ITEM.LASTVALUE1}</opdata>
@@ -647,7 +641,7 @@ Measured PSE power usage.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>0a865a8b6856bab5585ef923254e1efa</uuid>
+                    <uuid>b36ec4c4d0f54963a9d39a22e3093952</uuid>
                     <name>PoE PSE 1: Usage threshold</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.105.1.3.1.1.5.1</snmp_oid>
@@ -665,7 +659,7 @@ Configured PSE power usage threshold.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>f4a5fe7985f7cf1c1ad35275d12f7245</uuid>
+                    <uuid>34802b4730ab4c599e1f4aa7d8dcf13c</uuid>
                     <name>PoE PSE 1: Power utilization</name>
                     <type>CALCULATED</type>
                     <key>poe.main.util[pethMainPseConsumptionPower.1]</key>
@@ -683,7 +677,7 @@ Configured PSE power usage threshold.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>f898dadffd72f5124d1f0cc47118c301</uuid>
+                    <uuid>4253da68dd6c451ea81438fa62409de4</uuid>
                     <name>PoE PSE 1: Controller temperature</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.4.1.11.2.108.2.1.8.1</snmp_oid>
@@ -710,7 +704,7 @@ PoE controller temperature. Value 32767 means not available.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>2203cc95574abae87477a99a2ea243ed</uuid>
+                            <uuid>a66bf7300ea547408e9fd65420a8a706</uuid>
                             <expression>avg(/Aruba 1930 Switch SNMP/poe.main.temperature[rlPethMainPseTemperatureSensor.1],5m)&gt;{$TEMP_WARN}</expression>
                             <name>High PoE controller temperature</name>
                             <opdata>Current value: {ITEM.LASTVALUE1}</opdata>
@@ -725,7 +719,7 @@ PoE controller temperature. Value 32767 means not available.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>c2ed0db1bab96cbdc6b0016df171e78d</uuid>
+                    <uuid>aeb8caf49a3447b880ee8a7cfada0479</uuid>
                     <name>STP topology changes</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.17.2.4.0</snmp_oid>
@@ -750,7 +744,7 @@ Total number of topology changes detected by STP.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>dd6ddb6acb6473069478a94795aabce2</uuid>
+                            <uuid>c16768a5afd94224a27ab1d574788797</uuid>
                             <expression>{$STP.TOPOLOGY.CHANGE.WARN}&gt;0 and min(/Aruba 1930 Switch SNMP/stp.topology_changes[dot1dStpTopChanges.0],15m)&gt;{$STP.TOPOLOGY.CHANGE.WARN}</expression>
                             <name>Frequent STP topology changes</name>
                             <opdata>Changes/s: {ITEM.LASTVALUE1}</opdata>
@@ -765,7 +759,7 @@ Total number of topology changes detected by STP.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>f90312cc241f71cc7392db35660cf59c</uuid>
+                    <uuid>c598d56e800a4664b0629824db9f4bad</uuid>
                     <name>STP time since topology change</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.17.2.3.0</snmp_oid>
@@ -791,7 +785,7 @@ Time since last STP topology change.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>85cc414d07a5fe97f4eae64c35aba458</uuid>
+                    <uuid>10b2f7921ffa42cba5a75bc9ea756e3c</uuid>
                     <name>STP root port</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.2.1.17.2.7.0</snmp_oid>
@@ -808,7 +802,7 @@ Current STP root port.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>bbbc299831ce077eb68d827c922fcc98</uuid>
+                    <uuid>8eb2df89aa2940c3ba7dda27bce5ad6b</uuid>
                     <name>LLDP remote table inserts</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.0.8802.1.1.2.1.2.2.0</snmp_oid>
@@ -833,7 +827,7 @@ Remote systems table insertions.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>c8a4648d2acb5539c704d832eb56fcfd</uuid>
+                    <uuid>ba8d3e1b1630483fb0bd1c23aea4b2d4</uuid>
                     <name>LLDP remote table deletes</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.0.8802.1.1.2.1.2.3.0</snmp_oid>
@@ -858,7 +852,7 @@ Remote systems table deletions.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>223a716012121973c4e086f5729c34e8</uuid>
+                    <uuid>b22bb425094c492dbe899333e9477c6e</uuid>
                     <name>Storm-control support</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>1.3.6.1.4.1.11.2.77.10.0</snmp_oid>
@@ -879,7 +873,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </tags>
                 </item>
                 <item>
-                    <uuid>81369b923679ddaa865747b78019bf91</uuid>
+                    <uuid>015ebe326c5d4e02a0ab2320d1d74b5b</uuid>
                     <name>SNMP traps: PoE</name>
                     <type>SNMP_TRAP</type>
                     <key>snmptrap["(?i)(peth|poe|power.?ethernet|power.?usage)"]</key>
@@ -895,7 +889,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>946f35111cc55f5ea00d60b263f1571c</uuid>
+                            <uuid>082eb85832b8418d80bbbff619b07661</uuid>
                             <expression>nodata(/Aruba 1930 Switch SNMP/snmptrap["(?i)(peth|poe|power.?ethernet|power.?usage)"],5m)=0</expression>
                             <name>PoE trap received</name>
                             <opdata>Last trap: {ITEM.LASTVALUE1}</opdata>
@@ -911,7 +905,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>f5fc1d12d87ae585af95c96ace69ae92</uuid>
+                    <uuid>fe6a9071a09e4301bd0dc0eb8702b41a</uuid>
                     <name>SNMP traps: STP</name>
                     <type>SNMP_TRAP</type>
                     <key>snmptrap["(?i)(stp|rstp|spanning|topology.?change)"]</key>
@@ -927,7 +921,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>95fcaad224a5efb0f289994de270d3fb</uuid>
+                            <uuid>69e6f1ad3d0847c59c98a9386013c2c4</uuid>
                             <expression>nodata(/Aruba 1930 Switch SNMP/snmptrap["(?i)(stp|rstp|spanning|topology.?change)"],5m)=0</expression>
                             <name>STP trap received</name>
                             <opdata>Last trap: {ITEM.LASTVALUE1}</opdata>
@@ -943,7 +937,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>c7cea75a8a1358809df4c39b3f6d610b</uuid>
+                    <uuid>e08d59238d3f49d08f0c1cf5ff0f540b</uuid>
                     <name>SNMP traps: LACP</name>
                     <type>SNMP_TRAP</type>
                     <key>snmptrap["(?i)(lacp|dot3ad|trunk)"]</key>
@@ -959,7 +953,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>7937951b613d000dde39296850b40801</uuid>
+                            <uuid>365041f9161442cdb3967a12eb53be90</uuid>
                             <expression>nodata(/Aruba 1930 Switch SNMP/snmptrap["(?i)(lacp|dot3ad|trunk)"],5m)=0</expression>
                             <name>LACP trap received</name>
                             <opdata>Last trap: {ITEM.LASTVALUE1}</opdata>
@@ -975,7 +969,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </triggers>
                 </item>
                 <item>
-                    <uuid>ef15e63896f58cefb62ade307800b2b8</uuid>
+                    <uuid>ddf8731bad6b4a91811838c9e44076ea</uuid>
                     <name>SNMP traps: security</name>
                     <type>SNMP_TRAP</type>
                     <key>snmptrap["(?i)(auth|security|dot1x|radius|acl|spoof|violation)"]</key>
@@ -991,7 +985,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </tags>
                     <triggers>
                         <trigger>
-                            <uuid>e73ad4ccf26317ac58ba5bd02b7ae965</uuid>
+                            <uuid>14b5b0561d4946888256ad52c44f22e8</uuid>
                             <expression>nodata(/Aruba 1930 Switch SNMP/snmptrap["(?i)(auth|security|dot1x|radius|acl|spoof|violation)"],5m)=0</expression>
                             <name>Security trap received</name>
                             <opdata>Last trap: {ITEM.LASTVALUE1}</opdata>
@@ -1009,7 +1003,7 @@ Whether storm-control/rate-limit is supported.</description>
             </items>
             <discovery_rules>
                 <discovery_rule>
-                    <uuid>99b170c2782c4a9da6a9fc8195f3c2d7</uuid>
+                    <uuid>0c1e1059d06946d086791872959cbc8d</uuid>
                     <name>Entity Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ENT_CLASS},1.3.6.1.2.1.47.1.1.1.1.5,{#ENT_NAME},1.3.6.1.2.1.47.1.1.1.1.7]</snmp_oid>
@@ -1026,7 +1020,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </filter>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>bdca88db94ff445a9b8dba75515defbf</uuid>
+                            <uuid>5e516dfcf2674818b12144cdc9377a97</uuid>
                             <name>{#ENT_NAME}: Hardware model name</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.47.1.1.1.1.2.{#SNMPINDEX}</snmp_oid>
@@ -1052,7 +1046,7 @@ Whether storm-control/rate-limit is supported.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>fb311e5d042a41968841eab3e8acdf96</uuid>
+                            <uuid>1f565dd48d914caca5a1a24666dc3cae</uuid>
                             <name>{#ENT_NAME}: Hardware version(revision)</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.47.1.1.1.1.8.{#SNMPINDEX}</snmp_oid>
@@ -1080,7 +1074,7 @@ Whether storm-control/rate-limit is supported.</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>310d3fecb80842d6b304fa93b7be1c94</uuid>
+                    <uuid>b9b1712ac5dc4b6a9fcdae0272fdd0a3</uuid>
                     <name>FAN Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ENT_CLASS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.2,{#ENT_DESCR},1.3.6.1.4.1.11.2.14.11.1.2.6.1.7,{#ENT_STATUS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.4]</snmp_oid>
@@ -1104,7 +1098,7 @@ Whether storm-control/rate-limit is supported.</description>
                     <description>Discovering all entities of hpicfSensorObjectId that ends with: 11.2.3.7.8.3.2 - fans and are present</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>5129b16b6bd549b6b31778f2381329c2</uuid>
+                            <uuid>d5b1f85c00a149748e0b898f5103d311</uuid>
                             <name>{#ENT_DESCR}: Fan status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.1.2.6.1.4.{#SNMPINDEX}</snmp_oid>
@@ -1125,7 +1119,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>9559390cb9cd4bfda80170306ebd429e</uuid>
+                                    <uuid>95140bd48cce4a788172db7ef36d2877</uuid>
                                     <expression>count(/Aruba 1930 Switch SNMP/sensor.fan.status[hpicfSensorStatus.{#SNMPINDEX}],#1,"eq","{$FAN_CRIT_STATUS:\"bad\"}")=1</expression>
                                     <name>{#ENT_DESCR}: Fan is in critical state</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -1143,7 +1137,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                                     </tags>
                                 </trigger_prototype>
                                 <trigger_prototype>
-                                    <uuid>8b089ca2569f49789c1d6caae5d475c1</uuid>
+                                    <uuid>8389f1c8a1414113a30894a37db9c5e0</uuid>
                                     <expression>count(/Aruba 1930 Switch SNMP/sensor.fan.status[hpicfSensorStatus.{#SNMPINDEX}],#1,"eq","{$FAN_WARN_STATUS:\"warning\"}")=1</expression>
                                     <name>{#ENT_DESCR}: Fan is in warning state</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -1171,7 +1165,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>8fbee0ad395f4113b8616f96aa2d34ce</uuid>
+                    <uuid>9c76ba5e98764d5bb369b122cd769eb5</uuid>
                     <name>Memory Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.1]</snmp_oid>
@@ -1180,7 +1174,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     <description>Discovery of NETSWITCH-MIB::hpLocalMemTable, A table that contains information on all the local memory for each slot.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>191adcb1f2204de3b7ce4b59fb83bb16</uuid>
+                            <uuid>0e2e4425fea344b082f474a95c1fd005</uuid>
                             <name>#{#SNMPVALUE}: Available memory</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.6.{#SNMPINDEX}</snmp_oid>
@@ -1197,7 +1191,7 @@ The number of available (unallocated) bytes.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>c5672acc911c4840a30b564324f1793e</uuid>
+                            <uuid>fbabea1c87a647c09d1cf8e5ef0765b5</uuid>
                             <name>#{#SNMPVALUE}: Total memory</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.5.{#SNMPINDEX}</snmp_oid>
@@ -1214,7 +1208,7 @@ The number of currently installed bytes.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>77bddbffdb7b47748957a02629139020</uuid>
+                            <uuid>2f777d4c8a7e41d1a3db154bb5ad4392</uuid>
                             <name>#{#SNMPVALUE}: Used memory</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.5.1.1.2.1.1.1.7.{#SNMPINDEX}</snmp_oid>
@@ -1231,7 +1225,7 @@ The number of currently allocated bytes.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>fe1848bad9fa43458d7fde49795ebf0a</uuid>
+                            <uuid>b75f30ef7cc744a0817dfbe94c8b6b9a</uuid>
                             <name>#{#SNMPVALUE}: Memory utilization</name>
                             <type>CALCULATED</type>
                             <key>vm.memory.util[snmp.{#SNMPINDEX}]</key>
@@ -1248,7 +1242,7 @@ The number of currently allocated bytes.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>9b3842e032a34656b8dffb26c01c4ae7</uuid>
+                                    <uuid>0d98613ff3554a9ebc73a221803489fb</uuid>
                                     <expression>min(/Aruba 1930 Switch SNMP/vm.memory.util[snmp.{#SNMPINDEX}],5m)&gt;{$MEMORY.UTIL.MAX}</expression>
                                     <name>#{#SNMPVALUE}: High memory utilization (&gt;{$MEMORY.UTIL.MAX}% for 5m)</name>
                                     <priority>AVERAGE</priority>
@@ -1269,7 +1263,7 @@ The number of currently allocated bytes.</description>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <uuid>6c5d994229e84befaffa628910d5ca2c</uuid>
+                            <uuid>1757eab8f8d24d2293aee3349efd654d</uuid>
                             <name>#{#SNMPVALUE}: Memory usage</name>
                             <ymin_type_1>FIXED</ymin_type_1>
                             <graph_items>
@@ -1293,7 +1287,7 @@ The number of currently allocated bytes.</description>
                             </graph_items>
                         </graph_prototype>
                         <graph_prototype>
-                            <uuid>fec9cab97ec0464e8515e82e968907f5</uuid>
+                            <uuid>330d7dc3c71c476c8b1974070e561df7</uuid>
                             <name>#{#SNMPVALUE}: Memory utilization</name>
                             <ymin_type_1>FIXED</ymin_type_1>
                             <ymax_type_1>FIXED</ymax_type_1>
@@ -1311,7 +1305,7 @@ The number of currently allocated bytes.</description>
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>55cc69927aab49e7b4733dda4af5bc0c</uuid>
+                    <uuid>cb1befc7409c403a8fa6e9d0d9ca460a</uuid>
                     <name>Network interfaces discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#IFOPERSTATUS},1.3.6.1.2.1.2.2.1.8,{#IFADMINSTATUS},1.3.6.1.2.1.2.2.1.7,{#IFALIAS},1.3.6.1.2.1.31.1.1.1.18,{#IFNAME},1.3.6.1.2.1.31.1.1.1.1,{#IFDESCR},1.3.6.1.2.1.2.2.1.2,{#IFTYPE},1.3.6.1.2.1.2.2.1.3]</snmp_oid>
@@ -1391,7 +1385,7 @@ The number of currently allocated bytes.</description>
                     <description>Discovering interfaces from IF-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>4c00e8f86d18490ca2a2cba7c79b9b6f</uuid>
+                            <uuid>e126c12b353f4520bf22d3a17424e5d7</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Inbound packets discarded</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.13.{#SNMPINDEX}</snmp_oid>
@@ -1428,7 +1422,7 @@ and at other times as indicated by the value of ifCounterDiscontinuityTime.</des
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>b26cc2ed978044779cb5f6495a20e69e</uuid>
+                            <uuid>45d1b462d1504b188e484d7973e0ee8c</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Inbound packets with errors</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.14.{#SNMPINDEX}</snmp_oid>
@@ -1461,7 +1455,7 @@ For packet-oriented interfaces, the number of inbound packets that contained err
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>d8a289d5b23b4ff2a52c5dd91d5bfb88</uuid>
+                            <uuid>4e358117fcec4eca806a61004b5c64e6</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Bits received</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.31.1.1.1.6.{#SNMPINDEX}</snmp_oid>
@@ -1501,7 +1495,7 @@ The total number of octets received on the interface, including framing characte
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>2465940b973b492cb2f9bdc5eadc1892</uuid>
+                            <uuid>ebc9092738754405a0331b0b19c723f1</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Outbound packets discarded</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.19.{#SNMPINDEX}</snmp_oid>
@@ -1538,7 +1532,7 @@ and at other times as indicated by the value of ifCounterDiscontinuityTime.</des
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>41aaeee21a6e4372a7f88ac28e3dac12</uuid>
+                            <uuid>6e3b5a20e1444a17b070c19389249ad4</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Outbound packets with errors</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.20.{#SNMPINDEX}</snmp_oid>
@@ -1571,7 +1565,7 @@ For packet-oriented interfaces, the number of outbound packets that contained er
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>e7002686e3b8477981e68f0623180247</uuid>
+                            <uuid>f4f969d83e1c4bc19fb78c8c652208e3</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Bits sent</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.31.1.1.1.10.{#SNMPINDEX}</snmp_oid>
@@ -1611,7 +1605,7 @@ The total number of octets transmitted out of the interface, including framing c
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>50f5f4f2f5db43e6becd6693be0f9a93</uuid>
+                            <uuid>59fd170bd7094452b086be54d12c31c6</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Speed</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.31.1.1.1.15.{#SNMPINDEX}</snmp_oid>
@@ -1652,7 +1646,7 @@ An estimate of the interface's current bandwidth in units of 1,000,000 bits per 
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>162736fb3de74450b97a4fa1adedaaff</uuid>
+                            <uuid>bb98aaa827b84d3cbadbe2387bd92a34</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Operational status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.8.{#SNMPINDEX}</snmp_oid>
@@ -1686,7 +1680,7 @@ The current operational state of the interface.
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>50187eb4428b4166b5357dd5e675d470</uuid>
+                                    <uuid>90e0120b02ee4874a2b94c5ce648bd3e</uuid>
                                     <expression>{$IFCONTROL:"{#IFNAME}"}=1 and last(/Aruba 1930 Switch SNMP/net.if.status[ifOperStatus.{#SNMPINDEX}])=2 and (last(/Aruba 1930 Switch SNMP/net.if.status[ifOperStatus.{#SNMPINDEX}],#1)&lt;&gt;last(/Aruba 1930 Switch SNMP/net.if.status[ifOperStatus.{#SNMPINDEX}],#2))</expression>
                                     <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
                                     <recovery_expression>last(/Aruba 1930 Switch SNMP/net.if.status[ifOperStatus.{#SNMPINDEX}])&lt;&gt;2 or {$IFCONTROL:"{#IFNAME}"}=0</recovery_expression>
@@ -1709,7 +1703,7 @@ WARNING: if closed manually - won't fire again on next poll, because of .diff.</
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>ab69c7bcacbe42c2afd7f4a52f3ce91e</uuid>
+                            <uuid>8dbc94c6325746cc9e87c5a6a494bfb1</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Interface type</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.2.2.1.3.{#SNMPINDEX}</snmp_oid>
@@ -1748,7 +1742,7 @@ through updating the syntax of the IANAifType textual convention.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>1a7aea1984a5dc18d57d8a1bda256ed9</uuid>
+                            <uuid>eff1366b64ec490486bbfc75573c6ff0</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): PVID</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.17.7.1.4.5.1.1.{#SNMPINDEX}</snmp_oid>
@@ -1769,7 +1763,7 @@ VLAN ID assigned to untagged or priority-tagged frames on this port.</descriptio
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>3cc3e8b296f1a7253f426a415868ce25</uuid>
+                            <uuid>10b68031c3cb4f87862bf6bbd3783e4a</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Switchport mode</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.48.64.1.1.{#SNMPINDEX}</snmp_oid>
@@ -1796,7 +1790,7 @@ Whether the port is operating as L2 switchport or L3 routed port.</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <uuid>25d05d521df04d1da6089c8cdfcfdf86</uuid>
+                            <uuid>6635e66312c849c6b75d4ae0bb9fe827</uuid>
                             <expression>change(/Aruba 1930 Switch SNMP/net.if.speed[ifHighSpeed.{#SNMPINDEX}])&lt;0 and last(/Aruba 1930 Switch SNMP/net.if.speed[ifHighSpeed.{#SNMPINDEX}])&gt;0
 and (
 last(/Aruba 1930 Switch SNMP/net.if.type[ifType.{#SNMPINDEX}])=6 or
@@ -1830,7 +1824,7 @@ and
                             </tags>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <uuid>a1eb66fa58894bb798067b1e42afb771</uuid>
+                            <uuid>524b18f937b64f36a6365603d0b5ce0e</uuid>
                             <expression>(avg(/Aruba 1930 Switch SNMP/net.if.in[ifHCInOctets.{#SNMPINDEX}],15m)&gt;({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/Aruba 1930 Switch SNMP/net.if.speed[ifHighSpeed.{#SNMPINDEX}]) or
 avg(/Aruba 1930 Switch SNMP/net.if.out[ifHCOutOctets.{#SNMPINDEX}],15m)&gt;({$IF.UTIL.MAX:"{#IFNAME}"}/100)*last(/Aruba 1930 Switch SNMP/net.if.speed[ifHighSpeed.{#SNMPINDEX}])) and
 last(/Aruba 1930 Switch SNMP/net.if.speed[ifHighSpeed.{#SNMPINDEX}])&gt;0</expression>
@@ -1856,7 +1850,7 @@ avg(/Aruba 1930 Switch SNMP/net.if.out[ifHCOutOctets.{#SNMPINDEX}],15m)&lt;(({$I
                             </tags>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <uuid>def69d78f8144f0588736b73d41e03fa</uuid>
+                            <uuid>8485b04c188640c0aba854164ef1b418</uuid>
                             <expression>min(/Aruba 1930 Switch SNMP/net.if.in.errors[ifInErrors.{#SNMPINDEX}],5m)&gt;{$IF.ERRORS.WARN:"{#IFNAME}"}
 or min(/Aruba 1930 Switch SNMP/net.if.out.errors[ifOutErrors.{#SNMPINDEX}],5m)&gt;{$IF.ERRORS.WARN:"{#IFNAME}"}</expression>
                             <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
@@ -1887,7 +1881,7 @@ and max(/Aruba 1930 Switch SNMP/net.if.out.errors[ifOutErrors.{#SNMPINDEX}],5m)&
                     </trigger_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <uuid>b48cd483e77c4f03847bd1c212e316ca</uuid>
+                            <uuid>30441a438d564028a61533f5e40eb9b1</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Network traffic</name>
                             <graph_items>
                                 <graph_item>
@@ -1948,7 +1942,7 @@ and max(/Aruba 1930 Switch SNMP/net.if.out.errors[ifOutErrors.{#SNMPINDEX}],5m)&
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>cd60ab8ac00541ecb0879fe44293e10e</uuid>
+                    <uuid>cf07218796b44aff8ecd723554899036</uuid>
                     <name>EtherLike-MIB Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SNMPVALUE},1.3.6.1.2.1.10.7.2.1.19,{#IFOPERSTATUS},1.3.6.1.2.1.2.2.1.8,{#IFALIAS},1.3.6.1.2.1.31.1.1.1.18,{#IFNAME},1.3.6.1.2.1.31.1.1.1.1,{#IFDESCR},1.3.6.1.2.1.2.2.1.2]</snmp_oid>
@@ -1972,7 +1966,7 @@ and max(/Aruba 1930 Switch SNMP/net.if.out.errors[ifOutErrors.{#SNMPINDEX}],5m)&
                     <description>Discovering interfaces from IF-MIB and EtherLike-MIB. Interfaces with up(1) Operational Status are discovered.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>603a0d5b41874efda22a62b1ac058457</uuid>
+                            <uuid>bbc9fde7136d440ca1be88cd15124468</uuid>
                             <name>Interface {#IFNAME}({#IFALIAS}): Duplex status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.10.7.2.1.19.{#SNMPINDEX}</snmp_oid>
@@ -2022,7 +2016,7 @@ Reference: [IEEE 802.3 Std.], 30.3.1.1.32,aDuplexStatus.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>e07f535078ce4c4e8b1bc184430d3d88</uuid>
+                                    <uuid>747370ab82c349279bbd1c1804339029</uuid>
                                     <expression>last(/Aruba 1930 Switch SNMP/net.if.duplex[dot3StatsDuplexStatus.{#SNMPINDEX}])=2</expression>
                                     <name>Interface {#IFNAME}({#IFALIAS}): In half-duplex mode</name>
                                     <priority>WARNING</priority>
@@ -2059,7 +2053,7 @@ return JSON.stringify(data);</parameter>
                     </preprocessing>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>969c444a61b74aabacfde3f66cfd0528</uuid>
+                    <uuid>65070da608f64902bdeca4bf13d7093e</uuid>
                     <name>PSU Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ENT_CLASS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.2,{#ENT_DESCR},1.3.6.1.4.1.11.2.14.11.1.2.6.1.7,{#ENT_STATUS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.4]</snmp_oid>
@@ -2083,7 +2077,7 @@ return JSON.stringify(data);</parameter>
                     <description>Discovering all entities of hpicfSensorObjectId that ends with: 11.2.3.7.8.3.1 - power supplies and are present</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>3cde89e7d39941308d761f2f64b2fe3b</uuid>
+                            <uuid>051f473ef6384ac8a9c0b08a43622720</uuid>
                             <name>{#ENT_DESCR}: Power supply status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.1.2.6.1.4.{#SNMPINDEX}</snmp_oid>
@@ -2104,7 +2098,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>d59f83607f9a489b8130167bcfac5aeb</uuid>
+                                    <uuid>7d68fdd187344f3bb214bf952033bef4</uuid>
                                     <expression>count(/Aruba 1930 Switch SNMP/sensor.psu.status[hpicfSensorStatus.{#SNMPINDEX}],#1,"eq","{$PSU_CRIT_STATUS:\"bad\"}")=1</expression>
                                     <name>{#ENT_DESCR}: Power supply is in critical state</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2122,7 +2116,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                                     </tags>
                                 </trigger_prototype>
                                 <trigger_prototype>
-                                    <uuid>4ae4fe87974444568f4e426364569edc</uuid>
+                                    <uuid>9b911091e279444b8a0892d8ca3458e8</uuid>
                                     <expression>count(/Aruba 1930 Switch SNMP/sensor.psu.status[hpicfSensorStatus.{#SNMPINDEX}],#1,"eq","{$PSU_WARN_STATUS:\"warning\"}")=1</expression>
                                     <name>{#ENT_DESCR}: Power supply is in warning state</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2150,7 +2144,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>a8d8f4dc440949e485f379285f0cffc0</uuid>
+                    <uuid>ff86c0c65d76405cab8d64ceaf8c0405</uuid>
                     <name>Temperature Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#SENSOR_TYPE},1.3.6.1.2.1.99.1.1.1.1,{#SENSOR_INFO},1.3.6.1.2.1.47.1.1.1.1.2,{#SENSOR_PRECISION},1.3.6.1.2.1.99.1.1.1.3]</snmp_oid>
@@ -2174,7 +2168,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     <description>ENTITY-SENSORS-MIB::EntitySensorDataType discovery with temperature filter</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>d3235679d1e74b69a060580b0d5db89f</uuid>
+                            <uuid>bbed1115f1bf4a4b9e1c389b4ef28f19</uuid>
                             <name>{#SENSOR_INFO}: Temperature</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.99.1.1.1.4.{#SNMPINDEX}</snmp_oid>
@@ -2194,7 +2188,7 @@ entPhySensorScale, and entPhySensorPrecision objects must also be examined.</des
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>71a576bb6f7744b3a7f8769d890bce00</uuid>
+                                    <uuid>d58a9aebc84e4427a3d29cda9de5f16a</uuid>
                                     <expression>avg(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&gt;{$TEMP_CRIT:""}</expression>
                                     <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
                                     <recovery_expression>max(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&lt;{$TEMP_CRIT:""}-3</recovery_expression>
@@ -2214,7 +2208,7 @@ entPhySensorScale, and entPhySensorPrecision objects must also be examined.</des
                                     </tags>
                                 </trigger_prototype>
                                 <trigger_prototype>
-                                    <uuid>b6d5187615ff471baf9551bb200eb198</uuid>
+                                    <uuid>d44694fa0f02485f89cbc9ea0d7ae2dc</uuid>
                                     <expression>avg(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&gt;{$TEMP_WARN:""}</expression>
                                     <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
                                     <recovery_expression>max(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&lt;{$TEMP_WARN:""}-3</recovery_expression>
@@ -2241,7 +2235,7 @@ entPhySensorScale, and entPhySensorPrecision objects must also be examined.</des
                                     </tags>
                                 </trigger_prototype>
                                 <trigger_prototype>
-                                    <uuid>60bbe6c329e7408f8b0cb3397f06e049</uuid>
+                                    <uuid>f88ceb59d6824bd1bad8326dafce7596</uuid>
                                     <expression>avg(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&lt;{$TEMP_CRIT_LOW:""}</expression>
                                     <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
                                     <recovery_expression>min(/Aruba 1930 Switch SNMP/sensor.temp.value[entPhySensorValue.{#SNMPINDEX}],5m)&gt;{$TEMP_CRIT_LOW:""}+3</recovery_expression>
@@ -2264,7 +2258,7 @@ entPhySensorScale, and entPhySensorPrecision objects must also be examined.</des
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>83c378e2f27c4b6bb5249baca280c37c</uuid>
+                    <uuid>77d99254518843f0aa7a5cf8bcaae136</uuid>
                     <name>Temp Status Discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#ENT_CLASS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.2,{#ENT_DESCR},1.3.6.1.4.1.11.2.14.11.1.2.6.1.7,{#ENT_STATUS},1.3.6.1.4.1.11.2.14.11.1.2.6.1.4]</snmp_oid>
@@ -2288,7 +2282,7 @@ entPhySensorScale, and entPhySensorPrecision objects must also be examined.</des
                     <description>Discovering all entities of hpicfSensorObjectId that ends with: 11.2.3.7.8.3.3 - over temp status and are present</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>25a36119aa1f4361bc7259b6d5d6bac4</uuid>
+                            <uuid>fb00b2a1877142d992ae2517ebd8df87</uuid>
                             <name>{#ENT_DESCR}: Temperature status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.14.11.1.2.6.1.4.{#SNMPINDEX}</snmp_oid>
@@ -2311,7 +2305,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>d26b5e363bc307d7830e6c7bffe5ee70</uuid>
+                    <uuid>6ee11465d18f4f8d8c381cccc5dde069</uuid>
                     <name>PoE ports discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#POE.DETECT},1.3.6.1.2.1.105.1.1.1.6]</snmp_oid>
@@ -2330,7 +2324,7 @@ Actual status indicated by the sensor: {#ENT_DESCR}</description>
                     <description>Discovers PoE PSE ports from POWER-ETHERNET-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>ece1714b51e763adfb17a2e0d027e169</uuid>
+                            <uuid>03509bffd0204ab7b618af17c2295951</uuid>
                             <name>PoE port {#SNMPINDEX}: Detection status</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.6.{#SNMPINDEX}</snmp_oid>
@@ -2351,7 +2345,7 @@ PoE detection status for this PSE port.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>a76342689404837a113c8a4ec1f05aa3</uuid>
+                                    <uuid>974e89c1a4fd40b9b61440feead5e4a0</uuid>
                                     <expression>last(/Aruba 1930 Switch SNMP/poe.port.detection[pethPsePortDetectionStatus.{#SNMPINDEX}])=4 or last(/Aruba 1930 Switch SNMP/poe.port.detection[pethPsePortDetectionStatus.{#SNMPINDEX}])=6</expression>
                                     <name>PoE port {#SNMPINDEX}: Detection fault</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2366,7 +2360,7 @@ PoE detection status for this PSE port.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>065a630a68c7e47780502247882831dd</uuid>
+                            <uuid>3f6de94f356a447db50fd8a5b9b7fcb3</uuid>
                             <name>PoE port {#SNMPINDEX}: Actual power</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.15.{#SNMPINDEX}</snmp_oid>
@@ -2385,7 +2379,7 @@ Actual power delivered by the PSE port.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>612e48a1ad29bd468fef37cfa96ffd8d</uuid>
+                            <uuid>b9c6aadfebc246cabb9356e80fa5c1b9</uuid>
                             <name>PoE port {#SNMPINDEX}: Power limit</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.108.1.1.9.{#SNMPINDEX}</snmp_oid>
@@ -2412,7 +2406,7 @@ Operational power limit per port.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>054dbdd0461471a9fedeb0bc7a35c8ff</uuid>
+                            <uuid>bab41a5d2ab2450c9c2d84ed8d58e08e</uuid>
                             <name>PoE port {#SNMPINDEX}: Output power</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.108.1.1.5.{#SNMPINDEX}</snmp_oid>
@@ -2439,7 +2433,7 @@ Output power in mW, normalized to W.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>531d7d45803c859c5f5a2b40df5f8eed</uuid>
+                            <uuid>99376b44a849437f8f9c75370ae5dcf7</uuid>
                             <name>PoE port {#SNMPINDEX}: Power denied counter</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.12.{#SNMPINDEX}</snmp_oid>
@@ -2464,7 +2458,7 @@ Power denied counter.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>38b506ce2f3f86abc2b996bacc39c1fc</uuid>
+                                    <uuid>54c6234af68843e6b25b385cfdaeccd4</uuid>
                                     <expression>min(/Aruba 1930 Switch SNMP/poe.port.denied[pethPsePortPowerDeniedCounter.{#SNMPINDEX}],5m)&gt;0</expression>
                                     <name>PoE port {#SNMPINDEX}: Power denied events</name>
                                     <opdata>Events/s: {ITEM.LASTVALUE1}</opdata>
@@ -2479,7 +2473,7 @@ Power denied counter.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>7e4c5af3139da53ad803ab573df42505</uuid>
+                            <uuid>bb61eb4474824be6bcd949d0ac4527ea</uuid>
                             <name>PoE port {#SNMPINDEX}: Overload counter</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.13.{#SNMPINDEX}</snmp_oid>
@@ -2504,7 +2498,7 @@ Overload counter.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>441a3ee08d7d2f134e6b5936bc0f4a7b</uuid>
+                                    <uuid>1d377cd5f75b49fcb774132d5f27231a</uuid>
                                     <expression>min(/Aruba 1930 Switch SNMP/poe.port.overload[pethPsePortOverLoadCounter.{#SNMPINDEX}],5m)&gt;0</expression>
                                     <name>PoE port {#SNMPINDEX}: Overload events</name>
                                     <opdata>Events/s: {ITEM.LASTVALUE1}</opdata>
@@ -2519,7 +2513,7 @@ Overload counter.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>9c8be69772fe3d87ab14433daaa02adc</uuid>
+                            <uuid>0c6f80df7bdb4cc190e4c4d0e42f70b8</uuid>
                             <name>PoE port {#SNMPINDEX}: Short counter</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.14.{#SNMPINDEX}</snmp_oid>
@@ -2544,7 +2538,7 @@ Short-circuit counter.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>df24560a18289982834e224bf694215e</uuid>
+                                    <uuid>9e9c7803346d43dfb173dcce485ab592</uuid>
                                     <expression>min(/Aruba 1930 Switch SNMP/poe.port.short[pethPsePortShortCounter.{#SNMPINDEX}],5m)&gt;0</expression>
                                     <name>PoE port {#SNMPINDEX}: Short-circuit events</name>
                                     <opdata>Events/s: {ITEM.LASTVALUE1}</opdata>
@@ -2559,7 +2553,7 @@ Short-circuit counter.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>caffc14d1595dff899d8f5d148f65e79</uuid>
+                            <uuid>5fd196a60fdf4cd282ce27d58518a685</uuid>
                             <name>PoE port {#SNMPINDEX}: Power class</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.105.1.1.1.10.{#SNMPINDEX}</snmp_oid>
@@ -2580,7 +2574,7 @@ Detected PD power class.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>d4365de8565ab0378598437076ca94c4</uuid>
+                            <uuid>45e9609260fa4de0b25a61b51607fb41</uuid>
                             <name>PoE port {#SNMPINDEX}: Link partner PoE type</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.108.1.1.14.{#SNMPINDEX}</snmp_oid>
@@ -2603,7 +2597,7 @@ PoE type advertised by the connected endpoint.</description>
                     </item_prototypes>
                     <graph_prototypes>
                         <graph_prototype>
-                            <uuid>f755cb18007b391ca823b1dd5f19528f</uuid>
+                            <uuid>87cf4ccf540d411389892023aa4bcd1c</uuid>
                             <name>PoE port {#SNMPINDEX}: Power</name>
                             <graph_items>
                                 <graph_item>
@@ -2625,7 +2619,7 @@ PoE type advertised by the connected endpoint.</description>
                     </graph_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>40ec193771577f07303699de19aa0d48</uuid>
+                    <uuid>6890c7e8367548f7baff42057c1ab36a</uuid>
                     <name>LLDP neighbors discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#LLDP.REM.SYSNAME},1.0.8802.1.1.2.1.4.1.1.9,{#LLDP.REM.PORTID},1.0.8802.1.1.2.1.4.1.1.7,{#LLDP.REM.PORTDESC},1.0.8802.1.1.2.1.4.1.1.8,{#LLDP.REM.CHASSISID},1.0.8802.1.1.2.1.4.1.1.5]</snmp_oid>
@@ -2650,7 +2644,7 @@ PoE type advertised by the connected endpoint.</description>
                     <description>Discovers LLDP remote neighbors. SNMP index is LLDP timeMark.localPort.remIndex.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>a87da0368fbc5c25dfb97c247c290933</uuid>
+                            <uuid>3f041eb4aaed4b7a9ccc5696f29383d2</uuid>
                             <name>LLDP neighbor {#LLDP.REM.SYSNAME}: Remote port</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.0.8802.1.1.2.1.4.1.1.7.{#SNMPINDEX}</snmp_oid>
@@ -2669,7 +2663,7 @@ Remote LLDP port ID.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>fb339aed83f7b6a14cab6199272c160a</uuid>
+                            <uuid>c6ef0ed3d5404fe4acd7957580aaad5f</uuid>
                             <name>LLDP neighbor {#LLDP.REM.SYSNAME}: Remote port description</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.0.8802.1.1.2.1.4.1.1.8.{#SNMPINDEX}</snmp_oid>
@@ -2688,7 +2682,7 @@ Remote LLDP port description.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>414151c0c150df87ab33f1392e3d2898</uuid>
+                            <uuid>0a8c875519934e399732c8b413c14d24</uuid>
                             <name>LLDP neighbor {#LLDP.REM.SYSNAME}: System name</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.0.8802.1.1.2.1.4.1.1.9.{#SNMPINDEX}</snmp_oid>
@@ -2707,7 +2701,7 @@ Remote LLDP system name.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>eaa3f4d17d08cb106fe03ae340768982</uuid>
+                                    <uuid>449f9124769b431f8c26a7246ade7521</uuid>
                                     <expression>{$LLDP.NEIGHBOR.CHANGE}=1 and change(/Aruba 1930 Switch SNMP/lldp.rem.sysname[lldpRemSysName.{#SNMPINDEX}])=1</expression>
                                     <name>LLDP neighbor changed or disappeared: {#LLDP.REM.SYSNAME}</name>
                                     <opdata>Current neighbor: {ITEM.LASTVALUE1}</opdata>
@@ -2725,7 +2719,7 @@ Remote LLDP system name.</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>486b83616daab875809845b2a274fce5</uuid>
+                    <uuid>26173afc74364ff2bac7022255b04dfb</uuid>
                     <name>STP ports discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#BRIDGE.IFINDEX},1.3.6.1.2.1.17.1.4.1.2]</snmp_oid>
@@ -2734,7 +2728,7 @@ Remote LLDP system name.</description>
                     <description>Discovers bridge ports for STP state monitoring.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>6091373b8fa8b6eb43f5d047dcc1b10f</uuid>
+                            <uuid>da2a005f30cd49c38d093d04786ed48e</uuid>
                             <name>STP bridge port {#SNMPINDEX}: State</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.17.2.15.1.3.{#SNMPINDEX}</snmp_oid>
@@ -2755,7 +2749,7 @@ STP state for bridge port.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>0382c85b1a2bfc5abfa080f333821840</uuid>
+                                    <uuid>d6f67e9af4984776a93610237468fd8b</uuid>
                                     <expression>last(/Aruba 1930 Switch SNMP/stp.port.state[dot1dStpPortState.{#SNMPINDEX}])=6</expression>
                                     <name>STP bridge port {#SNMPINDEX}: broken state</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2770,7 +2764,7 @@ STP state for bridge port.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>cf0270eefe6864434690dd9780cea4cd</uuid>
+                            <uuid>13fcdb179abd45ca810a89df2cb1e08a</uuid>
                             <name>STP bridge port {#SNMPINDEX}: Forward transitions</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.17.2.15.1.10.{#SNMPINDEX}</snmp_oid>
@@ -2797,7 +2791,7 @@ Forwarding transition rate.</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>fc1de9d8e256c787d430be7b5f9f3ce0</uuid>
+                    <uuid>e245ba36a41048d991f306c8d625d8e4</uuid>
                     <name>VLAN discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#VLAN.NAME},1.3.6.1.2.1.17.7.1.4.3.1.1]</snmp_oid>
@@ -2822,7 +2816,7 @@ Forwarding transition rate.</description>
                     <description>Discovers static VLANs from Q-BRIDGE-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>795946341e42a4f62692f55677518644</uuid>
+                            <uuid>c1360f2cceb2424abeaaa723c71c968d</uuid>
                             <name>VLAN {#SNMPINDEX}: Name</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.17.7.1.4.3.1.1.{#SNMPINDEX}</snmp_oid>
@@ -2841,7 +2835,7 @@ Static VLAN name.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>7fae9bb2d90d21280b170c493d3a2316</uuid>
+                            <uuid>0153cef14f3249eea53c5764fbb5519d</uuid>
                             <name>VLAN {#SNMPINDEX}: Egress ports bitmap</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.2.1.17.7.1.4.3.1.2.{#SNMPINDEX}</snmp_oid>
@@ -2862,7 +2856,7 @@ Static VLAN egress port bitmap.</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>9a64297b1ee4822779c6b3f9f5ce67a0</uuid>
+                    <uuid>f72275d888e44eebad0b485de72a4bf0</uuid>
                     <name>LACP ports discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#LACP.RXSTATE},1.3.6.1.4.1.11.2.65.8.1.3]</snmp_oid>
@@ -2881,7 +2875,7 @@ Static VLAN egress port bitmap.</description>
                     <description>Discovers LACP aggregation ports from HPE-TRUNK-MIB.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>7667adcd88a1bff3c0d8be7e603781d5</uuid>
+                            <uuid>d8bf3ebc8ed9483c951784ae662d714d</uuid>
                             <name>LACP port {#SNMPINDEX}: RX state</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.65.8.1.3.{#SNMPINDEX}</snmp_oid>
@@ -2902,7 +2896,7 @@ LACP receive state.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>8052ddacc92fea88ea3bde8539dcbbae</uuid>
+                                    <uuid>761b286c5dd3485d99c115182c46e22e</uuid>
                                     <expression>{$LACP.MONITOR}=1 and last(/Aruba 1930 Switch SNMP/lacp.port.rx_state[rlDot3adAggPortLacpRxState.{#SNMPINDEX}])&lt;&gt;1</expression>
                                     <name>LACP port {#SNMPINDEX}: RX state is not current</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2917,7 +2911,7 @@ LACP receive state.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>03594d1215acb06df89faaf547ff1d39</uuid>
+                            <uuid>0b0d32082a2248fc967971cc2417c427</uuid>
                             <name>LACP port {#SNMPINDEX}: MUX state</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.65.8.1.4.{#SNMPINDEX}</snmp_oid>
@@ -2938,7 +2932,7 @@ LACP MUX state.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>b7ade81f0f9c62732c38aa1abb0f21e3</uuid>
+                            <uuid>cded6fb7d2c64f84837d723905a3dd03</uuid>
                             <name>LACP port {#SNMPINDEX}: Selected state</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.65.8.1.6.{#SNMPINDEX}</snmp_oid>
@@ -2959,7 +2953,7 @@ LACP selected state.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>4f757557e0cd964445e31ec7ad80c842</uuid>
+                                    <uuid>8e525061c0ee45d385c7c65762a475a9</uuid>
                                     <expression>{$LACP.MONITOR}=1 and last(/Aruba 1930 Switch SNMP/lacp.port.selected[rlDot3adAggPortLacpSelected.{#SNMPINDEX}])&lt;&gt;2</expression>
                                     <name>LACP port {#SNMPINDEX}: not selected</name>
                                     <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
@@ -2974,7 +2968,7 @@ LACP selected state.</description>
                             </trigger_prototypes>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>81b642b13b8b115de70160e60a806f73</uuid>
+                            <uuid>daa1339ffac1469785e39cc8d9b09563</uuid>
                             <name>LACP port {#SNMPINDEX}: LACPDUs RX</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.65.8.1.1.{#SNMPINDEX}</snmp_oid>
@@ -2999,7 +2993,7 @@ Received LACPDUs per second.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>64056adb097421d99b609007c80d212e</uuid>
+                            <uuid>89c1a2433a1443cb98525854a4c45d4b</uuid>
                             <name>LACP port {#SNMPINDEX}: LACPDUs TX</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.65.8.1.2.{#SNMPINDEX}</snmp_oid>
@@ -3026,7 +3020,7 @@ Transmitted LACPDUs per second.</description>
                     </item_prototypes>
                 </discovery_rule>
                 <discovery_rule>
-                    <uuid>2c9ded052ce6a245def7824d5fea4cbc</uuid>
+                    <uuid>71e3f5d0f16949779f674124ed50a34d</uuid>
                     <name>Storm-control discovery</name>
                     <type>SNMP_AGENT</type>
                     <snmp_oid>discovery[{#STORM.TRAFFIC},1.3.6.1.4.1.11.2.77.12.1.1]</snmp_oid>
@@ -3035,7 +3029,7 @@ Transmitted LACPDUs per second.</description>
                     <description>Discovers storm-control/rate-limit entries by bridge port and traffic type.</description>
                     <item_prototypes>
                         <item_prototype>
-                            <uuid>d3069cf53ada62d89975cf02670b8ae6</uuid>
+                            <uuid>29f28be78da14ef9bdefbdfbb89efdf2</uuid>
                             <name>Storm-control {#SNMPINDEX}: Traffic type</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.77.12.1.1.{#SNMPINDEX}</snmp_oid>
@@ -3056,7 +3050,7 @@ Configured traffic type.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>06bfebdd1c8653f9c1937aeed21fd917</uuid>
+                            <uuid>1d6caebbbfd64905be811a54c8359d1b</uuid>
                             <name>Storm-control {#SNMPINDEX}: Rate</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.77.12.1.2.{#SNMPINDEX}</snmp_oid>
@@ -3073,7 +3067,7 @@ Configured storm-control rate.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>986eb43e5de3137a6d5c6f27fedf2354</uuid>
+                            <uuid>34b9d4cb852d427891b8c6b0652b4cbb</uuid>
                             <name>Storm-control {#SNMPINDEX}: Unit</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.77.12.1.3.{#SNMPINDEX}</snmp_oid>
@@ -3094,7 +3088,7 @@ Configured rate unit.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>d8afb9350e3ce247e8c4d6a840437b33</uuid>
+                            <uuid>936712af897d4c229157ae507b7bcaa8</uuid>
                             <name>Storm-control {#SNMPINDEX}: Action</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.77.12.1.4.{#SNMPINDEX}</snmp_oid>
@@ -3115,7 +3109,7 @@ Configured storm-control action.</description>
                             </tags>
                         </item_prototype>
                         <item_prototype>
-                            <uuid>5b70e7e266daba0fc0ce630af2e51259</uuid>
+                            <uuid>a4e9865bda2442ecbb8f4256166189b8</uuid>
                             <name>Storm-control {#SNMPINDEX}: Drops</name>
                             <type>SNMP_AGENT</type>
                             <snmp_oid>1.3.6.1.4.1.11.2.77.13.1.2.{#SNMPINDEX}</snmp_oid>
@@ -3140,7 +3134,7 @@ Storm-control dropped traffic per second.</description>
                             </tags>
                             <trigger_prototypes>
                                 <trigger_prototype>
-                                    <uuid>6d4a746279c4c658125cab6896dce702</uuid>
+                                    <uuid>b157de067cb9469fa1308783d63b3bb0</uuid>
                                     <expression>{$STORMCTRL.MONITOR}=1 and min(/Aruba 1930 Switch SNMP/stormctrl.drops[rlStormCtrlRateLimOperDropCnt.{#SNMPINDEX}],5m)&gt;0</expression>
                                     <name>Storm-control drops detected on {#SNMPINDEX}</name>
                                     <opdata>Drops/s: {ITEM.LASTVALUE1}</opdata>
@@ -3352,7 +3346,7 @@ Storm-control dropped traffic per second.</description>
             </macros>
             <dashboards>
                 <dashboard>
-                    <uuid>6c9034c2f9c14a469610f3c30713aa52</uuid>
+                    <uuid>4706b5c8e87641988ef1ba1b80952869</uuid>
                     <name>Network interfaces</name>
                     <pages>
                         <page>
@@ -3394,7 +3388,7 @@ Storm-control dropped traffic per second.</description>
             </dashboards>
             <valuemaps>
                 <valuemap>
-                    <uuid>2bebea4d3486484383492cb97db23a66</uuid>
+                    <uuid>be9494727ea74bfe9d40c2acb01f88d8</uuid>
                     <name>EtherLike-MIB::dot3StatsDuplexStatus</name>
                     <mappings>
                         <mapping>
@@ -3412,7 +3406,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>26b1fb1229124da5831bcf2c0389d5a0</uuid>
+                    <uuid>13d250bbf2b849bf8d34697e6a2cdcbc</uuid>
                     <name>HP-ICF-CHASSIS::hpicfSensorStatus</name>
                     <mappings>
                         <mapping>
@@ -3438,7 +3432,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>230db317826e4dcaa489dbce7f6ddfae</uuid>
+                    <uuid>0f49721ab0d14a62a8b3798caf3c0d69</uuid>
                     <name>IF-MIB::ifOperStatus</name>
                     <mappings>
                         <mapping>
@@ -3468,7 +3462,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>fec08ae31d134630a4cea14889dba010</uuid>
+                    <uuid>ec57220fe05c4fd794b4a620783b7e65</uuid>
                     <name>IF-MIB::ifType</name>
                     <mappings>
                         <mapping>
@@ -4618,7 +4612,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>2aab3a9eeb6e44bc9f609d7da0dc173e</uuid>
+                    <uuid>14ea6f8d156244cd8575689187ff429c</uuid>
                     <name>Service state</name>
                     <mappings>
                         <mapping>
@@ -4632,7 +4626,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>6ed6db00ccbf4529b694228a91927d2f</uuid>
+                    <uuid>663d1d23f9114e99b435a5b88a7f8ab9</uuid>
                     <name>zabbix.host.available</name>
                     <mappings>
                         <mapping>
@@ -4650,7 +4644,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>ca3ec0cb491e24409177f01e50785f39</uuid>
+                    <uuid>6e5163412276476983c0dc2d9c82b44f</uuid>
                     <name>PETH-MIB::pethMainPseOperStatus</name>
                     <mappings>
                         <mapping>
@@ -4668,7 +4662,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>4f83f8ea6cf301a5eaab867a05f15c31</uuid>
+                    <uuid>eae616bd81c143729f703a447a43df26</uuid>
                     <name>PETH-MIB::pethPsePortDetectionStatus</name>
                     <mappings>
                         <mapping>
@@ -4702,7 +4696,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>faa4ebcce6bd1a74aa5229bf88b600e1</uuid>
+                    <uuid>8f3fa6a832dc4a82aa4c7dcb33edd29c</uuid>
                     <name>PETH-MIB::pethPsePortPowerPriority</name>
                     <mappings>
                         <mapping>
@@ -4720,7 +4714,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>9825d4d1008051e9b9b3232add140249</uuid>
+                    <uuid>6fabfd72469b4b849ff82f483f02dde9</uuid>
                     <name>PETH-MIB::pethPsePortPowerClassifications</name>
                     <mappings>
                         <mapping>
@@ -4746,7 +4740,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>f1266b923cd9ab3ca4d3ff41f0d8c34b</uuid>
+                    <uuid>ac1ca66a73c542c5a4e4cc423316ad35</uuid>
                     <name>HPE-POE-MIB::RlPoeType</name>
                     <mappings>
                         <mapping>
@@ -4776,7 +4770,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>7f740e574c1829af0f9fd5aa6d59b5dd</uuid>
+                    <uuid>39461b0f0b3041dea078597ae1414eba</uuid>
                     <name>HPE-POE-MIB::powerManagementMode</name>
                     <mappings>
                         <mapping>
@@ -4794,7 +4788,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>725c072788f51310d94b7a3a283c1a5f</uuid>
+                    <uuid>8304cd377b874814aee94ed3e238e51f</uuid>
                     <name>BRIDGE-MIB::dot1dStpPortState</name>
                     <mappings>
                         <mapping>
@@ -4824,7 +4818,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>6dab0c0b30895922ef3f8095780ed150</uuid>
+                    <uuid>2db3017762064331a81a44509853a09a</uuid>
                     <name>HPE-TRUNK-MIB::lacpRxState</name>
                     <mappings>
                         <mapping>
@@ -4854,7 +4848,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>6c47205f913af7ba3df5fa1f2e201115</uuid>
+                    <uuid>8dcc21490d2c448eb529ae4da10f29a0</uuid>
                     <name>HPE-TRUNK-MIB::lacpMuxState</name>
                     <mappings>
                         <mapping>
@@ -4884,7 +4878,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>89d84bb7cd5f1f4d0a163bb16f68e2fb</uuid>
+                    <uuid>bcebb224875b45789b9bcd1122a6aaf9</uuid>
                     <name>HPE-TRUNK-MIB::lacpSelected</name>
                     <mappings>
                         <mapping>
@@ -4902,7 +4896,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>796ae572a23dfd18144598eaec23bd47</uuid>
+                    <uuid>f3c501ead3424f0089ef55bb496713a9</uuid>
                     <name>HPE-STORMCTRL-MIB::trafficType</name>
                     <mappings>
                         <mapping>
@@ -4932,7 +4926,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>692cc4b822c4e0fc7e53083065827c23</uuid>
+                    <uuid>647c52fc305645d59365d58f253342fd</uuid>
                     <name>HPE-STORMCTRL-MIB::rateUnit</name>
                     <mappings>
                         <mapping>
@@ -4946,7 +4940,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>b2228e20743c615e10c1e1e404f4006e</uuid>
+                    <uuid>dde84dfb14d442ce92a818bb9aca6379</uuid>
                     <name>HPE-STORMCTRL-MIB::action</name>
                     <mappings>
                         <mapping>
@@ -4968,7 +4962,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>d471a8de67748db5ffb048e5e6f85a05</uuid>
+                    <uuid>edb83308e4a340d6bea49e37ac631c86</uuid>
                     <name>TruthValue</name>
                     <mappings>
                         <mapping>
@@ -4982,7 +4976,7 @@ Storm-control dropped traffic per second.</description>
                     </mappings>
                 </valuemap>
                 <valuemap>
-                    <uuid>fa1c1fc5672af78e974915631c30b71d</uuid>
+                    <uuid>fac3519d993f43ccb050db6c98a9d3df</uuid>
                     <name>HPE-VLAN-MIB::switchPortModeCategory</name>
                     <mappings>
                         <mapping>
@@ -5000,7 +4994,7 @@ Storm-control dropped traffic per second.</description>
     </templates>
     <graphs>
         <graph>
-            <uuid>a5f1b63228b544699fe2794b58135c1a</uuid>
+            <uuid>0bce1beb91184b89ae8f03f1ae9f4b31</uuid>
             <name>CPU utilization</name>
             <ymin_type_1>FIXED</ymin_type_1>
             <ymax_type_1>FIXED</ymax_type_1>
